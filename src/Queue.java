@@ -20,13 +20,13 @@ public class Queue {
 
     public Node reverseQueue(Node head) {
         Node current = head;
+        Node previous = null;
 
-        Node previous;
-        Node next;
-        for(previous = null; current != null; current = next) {
-            next = current.getNext();
+        while (current != null) {
+            Node next = current.getNext();
             current.setNext(previous);
             previous = current;
+            current = next;
         }
 
         return previous;
